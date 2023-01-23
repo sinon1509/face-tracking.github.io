@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Document</title>
 
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/dist/mindar-face.prod.js"></script>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/dist/mindar-face-aframe.prod.js"></script>
-</head>
-<body>
-    <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enbaled: false" device-orientation-permission-ui="enabled: false">
-
-
-    </a-scene>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-face.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-face-aframe.prod.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a-scene
+        mindar-face
+        embedded
+        color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights"
+        vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false"
+      >
+        <a-camera
+          active="false"
+          position="0 0 0"
+          look-control="enabled: false"
+        ></a-camera>
+        <a-entity mindar-face-target="anchorIndex: 1">
+          <a-sphere color="green" radius="0.1"></a-sphere>
+        </a-entity>
+      </a-scene>
+    </div>
+  </body>
 </html>
